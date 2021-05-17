@@ -1,0 +1,52 @@
+<my-custom-spinner [loading]="overlay"></my-custom-spinner>
+<p-growl [life]="growlLife" [(value)]="msgs"></p-growl>
+<div class="theme-detail" id="summary">
+    <div class="container">
+        <ul class="breadcrumb que-breadcrumbs">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>User Listing</li>
+        </ul>
+        <div class="theme-detail-left page-heading-top">
+            <div class="row">
+                <div class="col-sm-6 slider-left-side">
+                    <h1>User Listings</h1>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="col-sm-6 slider-right-side">
+                    <div class="top-head-controls pull-right">
+                        <a routerLink="/usermanagement/adduser">
+                            <img src="{{ imgPath + 'add-user-icon.png' }}">
+                        </a>
+                        <a href="javascript:void(0)" (click)="onDownload()">
+                            <img src="{{ imgPath + 'download-user-icon.png' }}">
+                        </a>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="theme-table">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="borderBoxTblDiv userManagementTable">
+                    <my-datatable id="tblUserManagement" [table]="tableConfig.table" [columns]="tableConfig.columns" [rows]="tableConfig.rows" [tableName]="tableName"
+                        (valueChange)='onAction($event)'>
+                    </my-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

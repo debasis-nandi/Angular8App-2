@@ -1,0 +1,321 @@
+.my-duration{
+    text-transform: uppercase;
+    font-size: 11px;
+    margin:15px 0 20px;
+}
+.my-duration span{
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+}
+.btn-know{
+    position: relative;
+    padding:10px 25px 10px 55px!important;
+}
+.btn-know:before{
+    content: '';
+    background: url("../images/icon-know-more.png") no-repeat 0px -20px;
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+}
+.action-btns a {
+    position: relative;
+    z-index: 1;
+    margin-left: 15px;
+}
+.action-btns .reportsbtn{
+    margin-left: 10px;
+}
+.action-btns a:before {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    padding: 0px!important;
+    content: '';
+    left: 50%;
+    z-index: -1;
+    margin-left: -17px;
+    top: 50%;
+    margin-top: -17px;
+}
+.action-btns a:hover{
+    opacity: 0.5;
+}
+.action-btns a:hover:before{
+    border-color:#2b549c;
+}
+
+.engage-theme{
+	background: url("../images/bg-engagement.jpg") 0 0 no-repeat;
+    background-size: cover;
+	color: #ffffff;
+    height: 380px;
+    padding: 50px 0;
+}
+.engage-theme h1 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    line-height: 22px;
+}
+.engage-theme p{
+    line-height: 20px;
+}
+.engage-theme .faded{
+    margin-top:30px;
+}
+.engage-theme .faded div:last-child{
+    border:0;
+    margin-right: 0;
+}
+.engage-theme .faded div{
+    display: inline-block;
+    width: 45%;
+    border-right: 1px solid;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+.engage-theme .faded span{
+    font-size: 18px;
+    margin-top: 5px;
+    padding-top: 5px;
+    font-family: "FSAlbert Bold", Arial;
+    display: inherit;
+}
+.text-shadow{
+    text-shadow: 1px 1px #000000;
+    letter-spacing: 1px;
+}
+
+.ongoing-proj h3{
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+    margin: 10px 0 5px;
+}
+.ongoing-proj a{
+    color: #4675aa;
+    font-weight: 600;
+}
+.ongoing-proj .project-head{
+    padding: 0 15px;
+}
+.ongoing-proj .project-head a{
+    display: block
+}
+.ongoing-proj ul{
+    padding: 0;
+    margin: 40px 0 0;
+    list-style: none
+}
+.ongoing-proj li{
+    background: #ffffff;
+    border-radius: 5px;
+    width: 48%;
+    float: left;
+    overflow: hidden
+}
+.ongoing-proj li:last-child{
+    float: right
+}
+.key-box-style{
+    background: #ffffff;
+    border-radius: 5px;
+    overflow: hidden
+}
+.ongoing-proj .percent-done span{
+    text-align: right;
+    float: right
+}
+.gray-section{
+    background: #f1f1f1;
+    color: #333333;
+    padding: 13px 15px 15px;
+    margin-top:13px;
+}
+.gray-section p{
+    font-size: 12px;
+}
+.gray-section .progress{
+    margin-top:0
+}
+.percent-done{
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+#filter-sec{
+    margin: 35px 0 0;
+}
+#filter-sec .filter-sec{
+    position: static;
+}
+#filter-sec .filter-sec ul li:nth-child(1n+2){
+    padding: 0 22px;
+}
+#filter-sec .filter-sec ul li:last-child{
+    padding: 0;
+}
+.journey2{
+    margin-top:10px;
+}
+#TabularData{
+    padding-bottom: 30px;
+    overflow: hidden
+}
+#TabularData h3{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.table-bg{
+    background:#f1f1f1;
+    padding:2px 2px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.table-bg .dureation-txt{
+    font-size: 11px;
+    color: #333333;
+}
+.table-bg .dureation-txt span{
+    font-size: 12px;
+    font-weight: 600;
+    margin-top:15px;
+    display: block;
+    white-space: nowrap
+}
+.table-bg .bg-white{
+    background: #ffffff;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.table-bg .dureation-txt > div{
+    border-left: 1px solid #999999;
+}
+.table-bg .bg-white > div:first-child{
+    border:0;
+}
+.table-bg .bg-white .action-btns .btn-know{
+    padding: 10px 10px 10px 35px!important;
+}
+.table-bg .bg-white .action-btns .btn-know:before{
+    left:4px;
+}
+.table-bg a{
+    color: #4675aa;
+    font-size: 14px;
+    font-weight: 600;
+}
+.table-bg h4{
+    font-size: 16px;
+    font-weight: 600;
+    margin:0 0 10px;
+}
+
+/*- Modal Style ==*/
+.modal-content{
+    border-radius: 10px;
+    overflow: hidden;
+    color: #333333;
+}
+.modal-content > div{
+    padding:15px;
+}
+.modal-header {
+    background: #f1f1f1;
+    position: relative
+}
+.modal-content h3 {
+    font-size: 18px;
+    color: #333333;
+    font-weight: 600;
+    margin: 10px 0 5px;
+}
+button.close{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 45px;
+    background: gray;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    border-radius: 0;
+}
+.modal-body h3{
+    margin-bottom: 10px;
+}
+.modal-body p{
+    padding: 0 0 20px
+}
+.modal-body li{
+    margin-bottom: 10px;
+}
+.modal-header .sub-heading{
+    color: #4675aa;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px
+}
+
+
+@media (max-width: 768px) {
+    .engage-theme{
+        height: inherit;
+        padding: 30px 0;
+    }
+    .engage-theme h1 {
+        margin: 0 0 20px;
+    }
+    .engage-theme .faded {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    .engage-theme .faded div{
+        width: 48%;
+        font-weight: 600;
+        padding: 0;
+        margin-right: 0;
+        font-size: 12px;
+        text-align: center;
+    }
+    .engage-theme .faded div span{
+        display: block;
+    }
+    .ongoing-proj ul{
+        margin-top: 20px;
+    }
+    .ongoing-proj li{
+        width: 100%;
+    }
+    .ongoing-proj li:last-child{
+        display: none
+    }
+    .journey2 .nav-tabs li a,
+    .journey2 .nav-tabs li.active a{
+        font-size: 20px;
+    }
+    .table-bg .bg-white > div,
+    .table-bg .dureation-txt > div{
+        border:0
+    }
+    .table-bg .dureation-txt{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .table-bg .dureation-txt > div:first-child{
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+    .table-bg .dureation-txt span{
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,162 @@
+{
+    "table": {
+        "paginator": true,
+        "rows": 5,
+        "rowsPerPageOptions": [5,10,20],
+        "reorderableColumns": true,
+        "responsive": false,
+        "globalsearch": true,
+        "resizableColumns": false,
+        "scrollable": true,
+        "scrollHeight": "300px",
+        "first":0,
+        "selectionMode":"",
+        "globalFilterFields":["userName", "emailId"]
+    },
+    "columns": [
+        {
+            "field": "id",
+            "header": "User Id",
+            "sortable": true,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": true,
+            "type": "text",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "userName",
+            "header": "User Name",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "text",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "emailId",
+            "header": "Email ID",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "text",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "assessLevel",
+            "header": "Assess Level",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "text",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "status",
+            "header": "Status",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "status",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "action",
+            "header": "Action",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width100",
+            "hidden": false,
+            "type": "action",
+            "valueField": "",
+            "routerLink": ""
+        }
+    ],
+    "rows": [
+        {
+            "id":1,
+            "first_name":"aa",
+            "last_name":"bb",
+            "email":"abc@evs.com",
+            "role_id":1,
+            "is_active": true,
+            "modified_by":1,
+            "modified_on":"2020-12-16T13:52:01"
+        },
+        {
+            "id":2,
+            "first_name":"aa",
+            "last_name":"bb",
+            "email":"abc@evs.com",
+            "role_id":1,
+            "is_active": true,
+            "modified_by":1,
+            "modified_on":"2020-12-16T13:52:01"
+        },
+        {
+            "id":3,
+            "first_name":"aa",
+            "last_name":"bb",
+            "email":"abc@evs.com",
+            "role_id":1,
+            "is_active": true,
+            "modified_by":1,
+            "modified_on":"2020-12-16T13:52:01"
+        },
+        {
+            "id":4,
+            "first_name":"aa",
+            "last_name":"bb",
+            "email":"abc@evs.com",
+            "role_id":1,
+            "is_active": true,
+            "modified_by":1,
+            "modified_on":"2020-12-16T13:52:01"
+        },
+        {
+            "id":5,
+            "first_name":"aa",
+            "last_name":"bb",
+            "email":"abc@evs.com",
+            "role_id":1,
+            "is_active": true,
+            "modified_by":1,
+            "modified_on":"2020-12-16T13:52:01"
+        },
+        {
+            "id":6,
+            "first_name":"aa",
+            "last_name":"bb",
+            "email":"abc@evs.com",
+            "role_id":1,
+            "is_active": true,
+            "modified_by":1,
+            "modified_on":"2020-12-16T13:52:01"
+        },
+        {
+            "id":7,
+            "first_name":"aa",
+            "last_name":"bb",
+            "email":"abc@evs.com",
+            "role_id":1,
+            "is_active": true,
+            "modified_by":1,
+            "modified_on":"2020-12-16T13:52:01"
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "score": 94.07,
+            "process_output_file": "mlout1.xlsx",
+            "uploaded_on": "2021-01-06T13:51:54",
+            "file_display_name": "anomaly_metadata_1609941114",
+            "tidy_up": true,
+            "ml_consolidation": true,
+            "ai_enrich": true
+        },
+        {
+            "id": 2,
+            "score": 72.59,
+            "process_output_file": "hc3out.xlsx",
+            "uploaded_on": "2021-01-06T14:29:37",
+            "file_display_name": "Database_quesense_1609943377",
+            "tidy_up": true,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 3,
+            "score": 85.23,
+            "process_output_file": "tidy2.xlsx",
+            "uploaded_on": "2021-01-06T14:20:11",
+            "file_display_name": "Attribute_1609942811",
+            "tidy_up": true,
+            "ml_consolidation": true,
+            "ai_enrich": false
+        },
+        {
+            "id": 4,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 5,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 6,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 7,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 8,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 9,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 10,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 11,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 12,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 13,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 14,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 15,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 16,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 17,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 18,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 19,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        },
+        {
+            "id": 20,
+            "score": null,
+            "process_output_file": null,
+            "uploaded_on": "2021-01-07T04:40:13",
+            "file_display_name": "OnboardingSanityChecks_1609994413",
+            "tidy_up": false,
+            "ml_consolidation": false,
+            "ai_enrich": false
+        }
+    ]
+}

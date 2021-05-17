@@ -1,0 +1,128 @@
+<my-custom-spinner [loading]="overlay"></my-custom-spinner>
+<p-growl [life]="growlLife" [(value)]="msgs"></p-growl>
+<div class="theme-detail" id="summary">
+    <div class="container">
+        <ul class="breadcrumb que-breadcrumbs">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a routerLink="/usermanagement">User Listings</a>
+            </li>
+            <li>Add USer</li>
+        </ul>
+        <div class="theme-detail-left page-heading-top">
+            <div class="row">
+                <div class="col-sm-6 slider-left-side">
+                    <h1>Add User</h1>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="col-sm-6 slider-right-side">
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="theme-table">
+    <div class="container">
+        <form [formGroup]="addUserForm">
+        <div id="newadd-news-sec-inner" class="borderBoxTblDiv userManagementTable">
+            <div class="row">
+                <div class="col-lg-10 col-sm-12 col-xs-12">
+
+
+                    <div class="row addUserBox">
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="">
+                                <label for="firstName">First Name</label><span class="error"> *</span>
+                                <input type="text" formControlName="firstName" class="form-control" placeholder="eg: John">
+                                <div *ngIf="addUserForm.get('firstName').errors && (addUserForm.get('firstName').dirty || addUserForm.get('firstName').touched)">
+                                    <span class="error" *ngIf="addUserForm.get('firstName').hasError('required')">First name missing</span>
+                                    <span class="error" *ngIf="addUserForm.get('firstName').hasError('maxlength')">First name cannot exceed 50 characters</span>
+                                    <span class="error" *ngIf="addUserForm.get('firstName').hasError('pattern')">Allow letters and numbers only</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="">
+                                <label for="lastName">Last Name</label><span class="error"> *</span>
+                                <input type="text" formControlName="lastName" class="form-control" placeholder="eg: Smith">
+                                <div *ngIf="addUserForm.get('lastName').errors && (addUserForm.get('lastName').dirty || addUserForm.get('lastName').touched)">
+                                    <span class="error" *ngIf="addUserForm.get('lastName').hasError('required')">Last name missing</span>
+                                    <span class="error" *ngIf="addUserForm.get('lastName').hasError('maxlength')">Last name cannot exceed 50 characters</span>
+                                    <span class="error" *ngIf="addUserForm.get('lastName').hasError('pattern')">Allow letters and numbers only</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row addUserBox">
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="">
+                                <label for="emailId">Email ID</label><span class="error"> *</span>
+                                <input type="email" formControlName="emailId" class="form-control" placeholder="eg: John.smith01@companyname.com">
+                                <div *ngIf="addUserForm.get('emailId').errors && (addUserForm.get('emailId').dirty || addUserForm.get('emailId').touched)">
+                                    <span class="error" *ngIf="addUserForm.get('emailId').hasError('required')">Email id missing</span>
+                                    <span class="error" *ngIf="addUserForm.get('emailId').hasError('email')">Invalid email id</span>
+                                    <span class="error" *ngIf="addUserForm.get('emailId').hasError('emailDomain')">Email must be evalueserve.com domain</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="">
+                                <label for="accessLevel">Access Level</label><span class="error"> *</span>
+                                <select formControlName="accessLevel" class="form-control">
+                                    <option value="">-Select-</option>
+                                    <option *ngFor="let item of accessLevelOption" [value]="item.value">{{item.label}}</option>
+                                </select>
+                                <div *ngIf="addUserForm.get('accessLevel').errors && (addUserForm.get('accessLevel').dirty || addUserForm.get('accessLevel').touched)">
+                                    <span class="error" *ngIf="addUserForm.get('accessLevel').hasError('required')">Access level missing</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row addUserBox">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+
+                            <label class="switch">
+                                <input type="checkbox" formControlName="active">
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="switchResult">Active</span>
+                        </div>
+                    </div>
+
+                    <div class="add-news-sec-btn">
+
+                        <div class="col-md-12 col-sm-12 devf">
+                            <button type="button" class="btn btn-reset" (click)="onCancel()">Cancel</button>
+                            <button type="button" class="btn btn-save" (click)="onSave()" [disabled]="!addUserForm.valid">Save</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    </div>
+</div>

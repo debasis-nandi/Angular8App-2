@@ -1,0 +1,28 @@
+.mydialog {
+    width: 80vw;
+}
+
+@media screen and (max-width: 40em) {
+    .mydialog {
+        width: 75vw;
+    }
+}
+
+#nav-tabContent.tab-content{
+    height:auto !important;
+}
+
+#mlConsolidationFile .ui-dropdown{ min-width: 22em; }
+
+.disableDiv{
+    pointer-events:none;
+    background-color: #f0f0f0;
+}
+
+.disableLink {
+    pointer-events: none;
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+  }

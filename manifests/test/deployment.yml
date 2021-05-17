@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: quesenseangular
+  name: quesenseangular
+  namespace: dev-quesense-test
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  selector:
+    matchLabels:
+      run: quesenseangular
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: quesenseangular
+    spec:
+      containers:
+      - image: quesense.azurecr.io/quesenseangulartest
+        imagePullPolicy: Always
+        name: quesenseangular
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        #resources:
+        #  limits:
+        #    cpu: "1"
+        #  requests:
+        #    cpu: "1"
+        envFrom:
+        - configMapRef:
+            name: quesense-env-config-test
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /tmp/docker/containers/
+      imagePullSecrets:
+      - name: acr-secret      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: quesenseangular
+  name: quesenseangular
+  namespace: dev-quesense-test
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: quesenseangular
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: quesenseangular
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.class: nginx
+    # nginx.org/server-tokens: "false"
+  namespace: dev-quesense-test
+spec:
+  tls:
+  - hosts:
+    - quesensetest.evalueserve.com
+    secretName: evalueserve-com-tls  
+  rules:
+  - host: quesensetest.evalueserve.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+          serviceName: quesenseangular
+          servicePort: 80

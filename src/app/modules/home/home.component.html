@@ -1,0 +1,324 @@
+<my-custom-spinner [loading]="overlay"></my-custom-spinner>
+<p-growl [life]="growlLife" [(value)]="msgs"></p-growl>
+<div class="theme-detail" id="summary">
+    <div class="container">
+        <div class="theme-detail-left">
+            <div class="row">
+                <div class="col-sm-6 slider-left-side">
+                    <h1>Welcome to Quesense</h1>
+                    <h5>We empower users with trusted data through machine learning </h5>
+                    <p>
+                        <!-- <span>*You can work on a maximum of 3 Data files simultaneously</span> -->
+                    </p>
+
+                    <p>Quesense is a ML-enabled tool that cleans CRM and expedites marketing campaigns. Transform unreliable CRM contacts into high quality leads, and empower demand generation teams with data they can trust to engage prospects and grow customer relationships.
+                        <br>
+                        <br> Upload your Excel or CSV file to get started.
+                    </p>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="FileUploaderControl">
+                        <input id="thefiles" type="file" name="files" accept=".xls, .xlsx, .csv" multiple />
+                    </div>
+                    <br/>
+                    <span>* You can work on a maximum of 2 Data files simultaneously</span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="theme-mid-bar">
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-2 mid-leftSide col-xs-12">
+          <div class="theme-des">
+            <div class="row row-eq-height">
+              <div class="col-sm-12">
+                <div class="si-top-left">
+                  <div class="row" >
+                    <div class="col-sm-12">
+                      <h2 class="font-big">Add Database</h2>
+                      <p>Add URL from the Web or Cloud</p>
+                    </div>
+                  </div>
+                </div>
+              </div>             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 mid-right-side col-xs-12">
+          <div class="col-md-6">
+          <div class="search-add">
+            <form class="navbar-form ng-pristine ng-valid" role="search">
+              <div class="form-group">
+                
+                <input type="text" class="form-control" placeholder="Search" name="q">
+                <div class="input-group-btn">
+                  <button class="btn btn-search disabled" type="button" ><img src="{{ imgPath + 'add-icon.png'}}" alt=""> <span class="hidetext">Add
+                      
+                  </span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+
+          <div class="col-md-6 padding0" style="display: table;">
+            <div class="mid-logo-img border-whiteR"> 
+              <img class="mid-logo-img-grey" src="{{ imgPath + 'mid-logo1.png' }}" alt="" >
+            </div>
+
+            <div class="mid-logo-img border-whiteR"> 
+              <img src="{{ imgPath + 'mid-logo2.png'}}" alt="" style="cursor: pointer;" (click)="onAddDb('MySql')">
+            </div>
+
+            <div class="mid-logo-img border-whiteR"> 
+              <img class="mid-logo-img-grey" src="{{ imgPath + 'mid-logo3.png'}}" alt="" (click)="onAddDb('Oracle')" style="pointer-events: none;">
+            </div>
+
+            <div class="mid-logo-img"> 
+              <img src="{{ imgPath + 'mid-logo5.png'}}" alt=""  style="cursor: pointer;" (click)="onAddDb('SqlServer')">
+            </div>            
+          </div>     
+        </div>
+      </div>
+    </div>
+  </div>
+<!--<div class="theme-mid-bar">
+    <div class="container">
+        <div class="row" style="display: flex;">
+            <div class="col-md-2 mid-leftSide">
+                <div class="theme-des">
+                    <div class="row row-eq-height">
+                        <div class="col-sm-12">
+                            <div class="si-top-left">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h2 class="font-big">Add Database</h2>
+                                        <p>Add URL: From Web or Cloud</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 mid-right-side">
+                <div class="col-md-6">
+                    <div class="search-add">
+                        <form class="navbar-form ng-pristine ng-valid" role="search">
+                            <div class="form-group">
+
+                                <input type="text" class="form-control" placeholder="Search" name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-search" type="button">
+                                        <img src="{{ imgPath + 'add-icon.png' }}" alt="">
+                                        <span class="hidetext">Add
+
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6 padding0" style="display: table;">
+                    <div class="mid-logo-img border-whiteR">
+                        <img src="{{ imgPath + 'mid-logo1.png' }}" alt="">
+                    </div>
+
+                    <div class="mid-logo-img border-whiteR">
+                        <img src="{{ imgPath + 'mid-logo2.png' }}" alt="" style="cursor: pointer;" (click)="onAddDb('MySql')">
+                    </div>
+
+                    <div class="mid-logo-img border-whiteR">
+                        <img src="{{ imgPath + 'mid-logo3.png' }}" alt="">
+                    </div>
+
+                    <div class="mid-logo-img">
+                        <img src="{{ imgPath + 'mid-logo4.png' }}" alt="">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<div class="theme-table">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <h2 class="theme-table-head">Previously Uploaded Files</h2>
+
+                <div class="borderBoxTblDiv">
+                    <my-datatable id="tblUploadedFiles" [table]="tableConfig.table" [columns]="tableConfig.columns" [rows]="tableConfig.rows" [tableName]="tableName"
+                        [totalRecords]="totalRecords" (valueChange)='onAction($event)' (onLazyLoading)="loadLazy($event)">
+                    </my-datatable>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<p-dialog [(visible)]="displayModal" [baseZIndex]="10000" [modal]="true" styleClass="mydialog" id="previewDialog">
+    <p-header>
+        <h4 class="modal-title">Preview <a href="javascript:void(0)" (click)="onPreviewClose()" class="pull-right">x</a></h4>
+    </p-header>
+    <my-custom-spinner [loading]="overlayPopup" [isPopupLoading]="true"></my-custom-spinner>
+    <div class="previewExpand_Top">
+        <div class="previewExpand_Name title_output">
+            <img src="{{ imgPath + 'table-img1.png' }}" width="20">
+            <span class="title_name">{{previewTitle}}</span>
+        </div>
+        <div class="previewExpand_Right">
+            <div>
+                <img src="{{ imgPath + 'info-icon.png' }}">
+                <p>Select the tab and download the data</p>
+            </div>
+            <button type="button" (click)="previewDownload()" class="btn btn-blue">
+                <img src="{{ imgPath + 'download-user-icon-white.png' }}" width="13" style="margin-right: 5px;">Download</button>
+        </div>
+    </div>
+
+    <div class="previewExpand_Tabs">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a id="nav-original-tab" class="nav-item nav-link active show" data-toggle="tab" href="#nav-original" role="tab" aria-controls="nav-original"
+                    aria-selected="true" *ngIf="tab.isOriginal" (click)="onTabSelection('Original', true, isSingleTabPreview)">Original</a>
+                <a id="nav-tidy-tab" class="nav-item nav-link" data-toggle="tab" href="#nav-tidy" role="tab" aria-controls="nav-tidy" aria-selected="false"
+                    *ngIf="tab.isTidyUp" (click)="onTabSelection('TidyUp', true)">Tidy Up</a>
+                <a id="nav-ml-tab" class="nav-item nav-link" data-toggle="tab" href="#nav-ml" role="tab" aria-controls="nav-ml" aria-selected="false"
+                    *ngIf="tab.isMLConsolidation" (click)="onTabSelection('MLConsolidation', true)">ML Consolidation</a>
+                <a id="nav-alenrich-tab" class="nav-item nav-link" data-toggle="tab" href="#nav-alenrich" role="tab" aria-controls="nav-alenrich"
+                    aria-selected="false" *ngIf="tab.isAIEnrich" (click)="onTabSelection('AIEnrich', true)">AI Enrich</a>
+            </div>
+        </nav>
+        <div id="nav-tabContent" class="tab-content">
+            <!-- <div class="tab-pane fade active show" id="nav-original" role="tabpanel" aria-labelledby="nav-original-tab"></div>
+                <div class="tab-pane fade" id="nav-tidy" role="tabpanel" aria-labelledby="nav-tidy-tab"></div>
+                <div class="tab-pane fade" id="nav-ml" role="tabpanel" aria-labelledby="nav-ml-tab"></div>
+                <div class="tab-pane fade" id="nav-alenrich" role="tabpanel" aria-labelledby="nav-alenrich-tab"></div> -->
+
+            <div class="borderBoxTblDiv marginT10">
+                <my-datatable id="tblPreview" [tableName]="tabTableName" [table]="tabTableConfig.table" [columns]="tabTableConfig.columns"
+                    [rows]="tabTableConfig.rows">
+                </my-datatable>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- <p-footer></p-footer> -->
+</p-dialog>
+
+<!-- Modal -->
+<p-dialog [(visible)]="displayModalDb" [baseZIndex]="10000" [modal]="true" position="top" styleClass="main-modal mydialogAddDb">
+    <p-header>
+        <h4 class="modal-title">{{modalDbTitle}}</h4>
+    </p-header>
+    <my-custom-spinner [loading]="overlayPopup" [isPopupLoading]="true"></my-custom-spinner>
+    
+    <form [formGroup]="signInDbForm" *ngIf="!isSigninSuccess" >
+        <div class="modal-body mydialogAddDbContent">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="">
+                        <label for="serverName">Server</label><span class="error"> *</span>
+                        <input class="form-control" placeholder="Enter Server" formControlName="serverName">
+                        <div *ngIf="signInDbForm.get('serverName').errors && (signInDbForm.get('serverName').dirty || signInDbForm.get('serverName').touched)">
+                            <span class="error" *ngIf="signInDbForm.get('serverName').hasError('required')">Server name missing</span>
+                            <span class="error" *ngIf="signInDbForm.get('serverName').hasError('maxlength')">Server name cannot exceed 200 characters</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="">Port</label><span class="error"> *</span>
+                    <input class="form-control" placeholder="Enter Port" formControlName="portNumber">
+                    <div *ngIf="signInDbForm.get('portNumber').errors && (signInDbForm.get('portNumber').dirty || signInDbForm.get('portNumber').touched)">
+                        <span class="error" *ngIf="signInDbForm.get('portNumber').hasError('required')">Port missing</span>
+                        <span class="error" *ngIf="signInDbForm.get('portNumber').hasError('maxlength')">Allow 5 characters </span><br/>
+                        <span class="error" *ngIf="signInDbForm.get('portNumber').hasError('pattern')">Allow numbers</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-sm-12">
+                    <!--<p class="modal-form-title">Enter information to sign into server :</p>-->
+                    <div class="mt-10">
+                        <label for="">Database</label>
+                        <span class="error"> *</span>
+                        <input class="form-control" placeholder="Enter database" formControlName="dataBaseName">
+                        <div *ngIf="signInDbForm.get('dataBaseName').errors && (signInDbForm.get('dataBaseName').dirty || signInDbForm.get('dataBaseName').touched)">
+                            <span class="error" *ngIf="signInDbForm.get('dataBaseName').hasError('required')">Database name missing</span>
+                            <span class="error" *ngIf="signInDbForm.get('dataBaseName').hasError('maxlength')">Allow 300 characters</span>
+                            <span class="error" *ngIf="signInDbForm.get('dataBaseName').hasError('pattern')">Special characters(<>) not allowed</span>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <label for="">Username</label><span class="error"> *</span>
+                        <input class="form-control" placeholder="Enter Username" formControlName="userName">
+                        <div *ngIf="signInDbForm.get('userName').errors && (signInDbForm.get('userName').dirty || signInDbForm.get('userName').touched)">
+                            <span class="error" *ngIf="signInDbForm.get('userName').hasError('required')">User name missing</span>
+                            <span class="error" *ngIf="signInDbForm.get('userName').hasError('maxlength')">User name cannot exceed 300 characters</span>
+                            <span class="error" *ngIf="signInDbForm.get('userName').hasError('pattern')">Special characters(<>) not allowed</span>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <label for="">Password</label><span class="error"> *</span>
+                        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+                        <div *ngIf="signInDbForm.get('password').errors && (signInDbForm.get('password').dirty || signInDbForm.get('password').touched)">
+                            <span class="error" *ngIf="signInDbForm.get('password').hasError('required')">Password missing</span>
+                            <span class="error" *ngIf="signInDbForm.get('password').hasError('maxlength')">Accept 200 characters</span>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <input type="checkbox" checked="true" formControlName="ssl">
+                        <label for="">Require SSL</label>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-body mydialogAddDbContent" *ngIf="isSigninSuccess">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="">
+                    <textarea id="txtSqlQuery" [ngClass]="sqlQueryPreviewCss" placeholder="" [(ngModel)]="sqlQuery"></textarea>
+                </div>
+            </div>
+        </div>
+        <div id="queryResultSection" class="row marginT10">
+            <div class="col-sm-12">
+                <div class="">
+                    <my-datatable [table]="tabTableConfig.table" [columns]="tabTableConfig.columns"
+                        [rows]="tabTableConfig.rows">
+                    </my-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <p-footer>
+        <button *ngIf="!isSigninSuccess" class="btn btn-save" [disabled]="!signInDbForm.valid" (click)="onSignInDb()">Sign In</button>
+        <div *ngIf="isSigninSuccess" class="text-left">
+            <button class="btn btn-save" (click)="onDbPreview()" [disabled]="sqlQuery ? false: true" >Preview</button>
+            <button class="btn btn-save" (click)="onDbOk()" [disabled]="sqlQuery ? false: true">OK</button>
+            <button class="btn btn-save" (click)="onDbCancel()">Cancel</button>
+        </div>
+    </p-footer>
+</p-dialog>

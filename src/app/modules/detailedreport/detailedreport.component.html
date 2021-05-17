@@ -1,0 +1,636 @@
+<my-custom-spinner [loading]="overlay"></my-custom-spinner>
+<p-growl [life]="growlLife" [(value)]="msgs"></p-growl>
+<div class="theme-detail theme-detail-inner" id="summary">
+    <div class="container">
+        <ul class="breadcrumb que-breadcrumbs">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>File Details</li>
+        </ul>
+        <div class="theme-detail-left page-heading-top">
+            <div *ngIf="isProcessCompleted" class="row">
+                <div class="col-sm-6 slider-left-side">
+                    <div class="file-detail-title">
+                        <img src="{{ imgPath + 'xls-icon.png' }}" width="30">
+                        <span class="file-detail-title_name">{{basicFileDetail.file_display_name}}
+                            <br>
+                            <span class="file-detail-title_size">{{basicFileDetail.original_file_size}} | Uploaded on {{ getLocalDateTime(basicFileDetail.uploaded_on) | date: 'medium' }}</span>
+                        </span>
+                    </div>
+                    Your file has been successfully uploaded. Follow the steps below for trustworthy CRM data.<br><br>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="col-sm-6 slider-right-side">
+                    <div class="top-head-controls pull-right">
+                        <a href="javascript:void(0)" (click)="onDownloadOriginalFile()">
+                            <img src="{{ imgPath + 'download-user-icon.png' }}">
+                        </a>
+                        <a href="javascript:void(0)" (click)="onPreview('Original')">
+                            <img src="{{ imgPath + 'table-view.png' }}">
+                        </a>
+                        <a href="javascript:void(0)" (click)="onDelete()">
+                            <img src="{{ imgPath + 'delete-icon.png' }}">
+                        </a>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="theme-table">
+    <div class="container">
+        <div id="newadd-news-sec-inner" class="borderBoxTblDiv userManagementTable">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+
+                    <div *ngIf="!isProcessCompleted" class="row file-detail-box">
+                        <div class="col-lg-3 col-sm-12 col-xs-12 border-right1">
+                            <div class="file-detail-boxes file-detail-box2">
+                                <div class="marginT150"><img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 col-xs-12 border-right1">
+                            <div class="file-detail-boxes file-detail-box2">
+                                <div class="marginT150"><img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 col-xs-12 border-right1">
+                            <div class="file-detail-boxes file-detail-box3">
+                                <div class="marginT150"><img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 col-xs-12">
+                            <div class="file-detail-boxes file-detail-box3">
+                                <div class="marginT150"><img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="isProcessCompleted" class="row file-detail-box" id="itemsbox">
+                        <div class="col-lg-3 col-sm-12 col-xs-12 border-right1">
+                            <div *ngIf="isCompletedHealthCheck" class="file-detail-box1">
+                                <h4>Health Check
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+                        
+                                <div class="set-size charts-container">
+                                    <div class="pie-wrapper progress-75 style-2">
+                                        <p-chart type="doughnut" [data]="chartData" width="200px" height="200px" [options]="options" #chart></p-chart>
+                                    </div>
+                                </div>
+                        
+                                <div class="file_legends">
+                                    <span class="blue-legend">Reliable</span>
+                                    <span class="red-legend">Needs Improvement</span>
+                        
+                                </div>
+                        
+                                <button id="downloadHealthCheckReport" class="btn btn-blue btn-sticky" (click)="onDownloadProcessFile('Original','DetailReport')">
+                                    <img src="{{ imgPath + 'download-user-icon-white.png' }}" width="16" style="margin-right: 5px;">Detailed Report
+                                </button>
+                                <div id="healthCheckData_Pro" class="tidyUpData_Pro">
+                                    <img src="{{ imgPath + 'processing.gif' }}">Processing
+                                </div>
+                            </div>
+                            <div *ngIf="!isCompletedHealthCheck" class="file-detail-boxes file-detail-box2">
+                                <img src="{{ imgPath + 'health-check.png' }}">
+                                <h4>Health Check
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+                        
+                                <p>
+                                    Healtcheck is a ML driven indigenously developed asseses the data on quality and maturity in its as-is form.
+                                    Once assessed it prepares a reliability report along with summary statistics associated with the data.
+                                </p>
+                        
+                                <button id="healthCheck_Button" class="btn btn-blue btn-sticky" (click)="onHealthCheck('Original')">Run</button>
+                                <div id="healthCheckData_Pro" class="tidyUpData_Pro">
+                                    <img src="{{ imgPath + 'processing.gif' }}">Processing
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 col-xs-12 border-right1">
+                            <div *ngIf="!isCompletedTidyUp" class="file-detail-boxes file-detail-box2">
+                                <img src="{{ imgPath + 'tidy-data.png' }}">
+                                <h4>Tidy Up data
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+
+                                <p>Validates & Removes various abnormalities from data. Standardizes data to a consistent form
+                                    <br>
+                                    <br> e.x. Typos, , Special characters, Inconsistent formatting, Whitespaces, Punctuation,
+                                    Phone number, Email Validation, Zip Validation & extraction , Entity recognition from
+                                    Remarks or Notes
+                                </p>
+                                
+                                <button id="tidyUpData_Button" class="btn btn-blue btn-sticky" [disabled]="isDisabledTidyUp" (click)="onRunProcess('TidyUp')">Run</button>
+                                <div class="tidyUpData_Pro" id="tidyUpData_Pro">
+                                    <img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                            </div>
+
+                            <div *ngIf="isCompletedTidyUp" class="file-detail-boxes file-detail-box2">
+                                <div class="file-detail-images">
+                                    <img src="{{ imgPath + 'tidy-data.png' }}">
+                                    <img class="file-detail-tick" src="{{ imgPath + 'tick-mark.png' }}" width="34">
+                                </div>
+                                <h4>Tidy Up data
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+                            
+                                <p style="margin-top:130px;">
+                                    <a href="javascript:void(0)" (click)="onDownloadProcessFile('TidyUp','SupportOutput')">Click here</a>
+                                    <br> to view Comparison File
+                                </p>
+                            
+                                <button id="downloadTidyUpFile" class="btn btn-blue btn-sticky" (click)="onDownloadProcessFile('TidyUp','ProcessOutput')">
+                                    <img src="{{ imgPath + 'download-user-icon-white.png' }}" width="16" style="margin-right: 5px;">Tidy-up File
+                                </button>
+                                <div id="healthCheckData_Pro" class="tidyUpData_Pro">
+                                    <img src="{{ imgPath + 'processing.gif' }}">Processing
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-sm-12 col-xs-12 border-right1">
+                            <div *ngIf="!isCompletedMLConsolidation" class="file-detail-boxes file-detail-box3">
+                                <img src="{{ imgPath + 'consolidation.png' }}">
+                                <h4>ML Consolidation
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+
+                                <p>Active machine learning based De-duplication & consolidation. Identifies & groups all potential
+                                    duplicate records using multiple fields to find records with the most agreement possible.
+                                    Involves a training mode for AI - labelling session & De-duplicating records.
+                                    <br>
+                                    <br>
+                                    <span>Note: Trainings are saved as settings for future use on similar dataset.</span>
+                                </p>
+                                <div class="tidyUpData_Pro" id="mlConsolidation_Pro">
+                                        <img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                                <button id="mlConsolidation_Button" class="btn btn-blue btn-sticky" [disabled]="isDisabledMLConsolidation" (click)="onMLConsolidationRun()">Run</button>
+                            </div>
+
+                            <div *ngIf="isCompletedMLConsolidation" class="file-detail-boxes file-detail-box3">
+                                <div class="file-detail-images">
+                                    <img src="{{ imgPath + 'consolidation.png' }}">
+                                    <img class="file-detail-tick" src="{{ imgPath + 'tick-mark.png' }}" width="34">
+                                </div>
+                                <h4>ML Consolidation
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+                                <p style="margin-top:30px;">
+                                    Total Records: {{fileDetails.file_process_outcome.ml_consol_records}}<br/>
+                                    Total Clusters: {{fileDetails.file_process_outcome.ml_consol_clusters}}
+                                </p>
+                                <p style="margin-top:67px;">
+                                    <a href="javascript:void(0)" (click)="onPreview('MLConsolidation')">Click here</a>
+                                    <br> to Preview the File
+                                </p>
+                            
+                                <div class="tidyUpData_Pro" id="mlConsolidation_Pro">
+                                        <img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                                <button id="downloadMLProcessFile" class="btn btn-blue btn-sticky" (click)="onDownloadProcessFile('MLConsolidation','ProcessOutput')">
+                                    <img src="{{ imgPath + 'download-user-icon-white.png' }}" width="16" style="margin-right: 5px;">ML Consolidation
+                                </button>
+                                <div id="reRunMLProcess" class="re-run-btn">
+                                    <a href="javascript:void(0)" (click)="onMLConsolidationRun()">Re-Run</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-12 col-xs-12">
+                            <div *ngIf="!isCompletedAIEnrich" class="file-detail-boxes file-detail-box3">
+                                <img src="{{ imgPath + 'ai-enrich.png' }}">
+                                <h4>AI Enrich
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+
+                                <p>Enriches dataset by actively searching web-sources as AI Suggest and LinkedIn Suggest. An
+                                    additional data record for every CRM data record generated by NLP.
+                                    <br>
+                                    <br> For all LinkedIn suggest a URL for reference.</p>
+
+                                <div class="tidyUpData_Pro" id="aiEnrich_Pro">
+                                    <img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                                <button id="aiEnrich_Button" class="btn btn-blue btn-sticky" [disabled]="isDisabledAIEnrich" (click)="onRunProcess('AIEnrich')">Run</button>
+                            </div>
+
+                            <div *ngIf="isCompletedAIEnrich" class="file-detail-boxes file-detail-box3">
+                                <div class="file-detail-images">
+                                    <img src="{{ imgPath + 'ai-enrich.png' }}">
+                                    <img class="file-detail-tick" src="{{ imgPath + 'tick-mark.png' }}" width="34">
+                                </div>
+                                <h4>AI Enrich
+                                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}">
+                                </h4>
+                                <p style="margin-top:30px;">
+                                    AI Suggested Records: {{fileDetails.file_process_outcome.ai_enrich_aisuggested_records}}<br/>
+                                    LinkedIn Suggested Records: {{fileDetails.file_process_outcome.ai_enrich_linkedin_records}}<br/>
+                                    Websites sources: {{fileDetails.file_process_outcome.ai_enrich_source_records}}
+                                </p>
+                                <p style="margin-top:50px;">
+                                    <a href="javascript:void(0)" (click)="onPreview('AIEnrich')">Click here</a>
+                                    <br> to Preview the File
+                                </p>
+                            
+                                <div class="tidyUpData_Pro" id="aiEnrich_Pro">
+                                    <img src="{{ imgPath + 'processing.gif' }}">Processing</div>
+                                <button id="downloadAiEnrichFile" class="btn btn-blue btn-sticky" (click)="onDownloadProcessFile('AIEnrich','ProcessOutput')">
+                                    <img src="{{ imgPath + 'download-user-icon-white.png' }}" width="16" style="margin-right: 5px;">AI Enrich File
+                                </button>
+                                <div id="reRunAiEnrichProcess" class="re-run-btn">
+                                    <a href="javascript:void(0)" (click)="onRunProcess('AIEnrich')">Re-Run</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="marginT10">
+            <strong>Note: </strong>
+            <i>The score gets updated based on first two processes only (Health Check and Tidy Up).</i>
+        </div>
+    
+    </div>
+</div>
+
+<div class="tidyUpData_popup">
+    <div class="tidyUpData_popup_overlay">
+        <div class="tidyUpData_popup_box">
+            <div class="tidyUpData_popup_header">
+                <h4>{{processTitle}}</h4>
+                <div class="tidyUpData_popup_btns">
+                    <span class="collapse_tidyUpData">
+                        <img src="{{ imgPath + 'collapse-icon.png' }}">
+                    </span>
+                    <span class="pop_close">
+                        <img src="{{ imgPath + 'close-icon.png' }}">
+                    </span>
+                </div>
+            </div>
+            <my-custom-spinner [loading]="overlayPopup" [isPopupLoading]="true"></my-custom-spinner>
+            <div class="tidyUpData_popup_progress">
+                <div class="title_output">
+                    <img class="tidy-icon" src="{{processIcon}}">
+                    <span *ngIf="basicFileDetail" class="title_name">{{basicFileDetail.file_display_name}}
+                        <br>
+                        <span class="title_size">{{basicFileDetail.original_file_size}} | Uploaded on {{ getLocalDateTime(basicFileDetail.uploaded_on)| date: 'medium' }}</span>
+                        <button *ngIf="process.mlConsolidation.isMLConsolidation" type="button" id="btnSettings" (click)="onSettings()" class="popup_btn btn btn-blue">Use Previous Settings</button>
+                        <div id="progressBar">
+                            <div class="progress">
+                                <p-progressBar *ngIf="statusNum > 0" [value]="statusNum" [style]="{'height': '8px'}"></p-progressBar>
+                            </div>
+                            <span class="processing">Processing...</span>
+                            <span class="etc-time">{{statusNum + '%'}}</span>
+                        </div>
+                    </span>
+                    <span class="expand_tidyUpData" style="cursor: pointer;">
+                        <img src="{{ imgPath + 'expand-icon.png' }}">
+                    </span>
+                </div>
+            </div>
+
+            <div *ngIf="process.tidyUp" class="tidyUpData_popup_content">
+                <h4>Matching Formats </h4>
+                <p>Data will go through consistent quality checks and correction of available column. Some of the examples are:</p>
+
+                <div class="row tidyUpData_popup_content__box">
+                    <div class="col-lg-3">
+                        <p>Data format validation & correction
+                            <br>
+                            <br> Zip code formatting</p>
+
+                    </div>
+                    <div class="col-lg-3">
+                        <p>Phone number validation
+                            <br>
+                            <br> Email validation</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <p>Entity Recognition
+                            <br>
+                            <br> Phone number formatting</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <p>Uniform Punctuation
+                            <br>
+                            <br> Zip code extraction</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div *ngIf="process.mlConsolidation.isMLConsolidation" class="tidyUpData_popup_content" id="mlPopupContent">
+                <h4>De-Duplicate User Input </h4>
+                <p>{{recordCount}}/{{trainingRecordList.length}} Validated by the user.</p>
+            
+                <div *ngIf="trainingRecordList && trainingRecordList.length > 0" class="row mlConsolidation_popup_content__box">
+                    <div class="col-lg-6 border-right2">
+                        <p>First Name:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[0]['First Name']}}</span>
+                            </span>
+                        </p>
+                        <p>Last Name:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[0]['Last Name']}}</span>
+                            </span>
+                        </p>
+                        <p>Full Name:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[0]['Full Name']}}</span>
+                            </span>
+                        </p>
+                        <p>Company:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[0].Company}}</span>
+                            </span>
+                        </p>
+                        <p>Address:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[0].Address}}</span>
+                            </span>
+                        </p>
+                        <p>Phone:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[0].Phone}}</span>
+                            </span>
+                        </p>
+                        <p>Zip:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[0].Zip}}</span>
+                            </span>
+                        </p>
+            
+                    </div>
+                    <div class="col-lg-6">
+                        <p>First Name:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[1]['First Name']}}</span>
+                            </span>
+                        </p>
+                        <p>Last Name:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[1]['Last Name']}}</span>
+                            </span>
+                        </p>
+                        <p>Full Name:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[1]['Full Name']}}</span>
+                            </span>
+                        </p>
+                        <p>Company:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[1].Company}}</span>
+                            </span>
+                        </p>
+                        <p>Address:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[1].Address}}</span>
+                            </span>
+                        </p>
+                        <p>Phone:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[1].Phone}}</span>
+                            </span>
+                        </p>
+                        <p>Zip:
+                            <span *ngIf="recordTrack.indexCount < trainingRecordList.length">
+                                <span class="higlighter_pop">{{trainingRecordList[recordTrack.indexCount].record_pair[1].Zip}}</span>
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="mlConsolidation_question">
+                    <p>
+                        <strong>Are these the same records?</strong>
+                    </p>
+                </div>
+                <div class="mlConsolidation_outputBtn">
+                    <button type="button" (click)="onPrevious()" [disabled]="isDisablePrevious" class="output_btn btn btn-blue">Previous</button>
+                    <button type="button" (click)="onYes()" [disabled]="isDisableYesNoMaybe" class="output_btn btn btn-blue output_btn_green">Yes</button>
+                    <button type="button" (click)="onNo()" [disabled]="isDisableYesNoMaybe" class="output_btn btn btn-blue output_btn_red">No</button>
+                    <button type="button" (click)="onMaybe()" [disabled]="isDisableYesNoMaybe" class="output_btn btn btn-blue output_btn_yellow">Maybe</button>
+                    <button type="button" (click)="onFinish()" [disabled]="isDisableFinish()" class="output_btn btn btn-blue pop_close">Finish</button>
+            
+                </div>
+            
+                <div class="mlConsolidation_footer text-left">
+                    Machine Learning Component
+                    <img src="{{ imgPath + 'info-tooltip-icon.png' }}" pTooltip="For best results it is advisable to validate at-least 20 records before hitting the finish button" tooltipPosition="bottom">
+
+                    <div class="mlConsolidation_progress">
+                        <div class="mlConsolidation_progress_box mlConsolidation_progress_yes">Yes - {{recordTrack.yesCount}}</div>
+                        <div class="mlConsolidation_progress_box mlConsolidation_progress_no">No - {{recordTrack.noCount}}</div>
+                        <div class="mlConsolidation_progress_box mlConsolidation_progress_maybe">Maybe - {{recordTrack.maybeCount}}</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div *ngIf="process.mlConsolidation.isSettings" class="tidyUpData_popup_content ml-content2">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                        <div class="text-left">
+                            <label for="">Select Previously Uploaded File</label>
+                            <!-- <select class="form-control" id="" [(ngModel)]="selectedMLConsolidationFile">
+                                <option>-Select-</option>
+                                <option *ngFor="let item of mlConsolidationFileList" [value]="item.id">{{item.file_display_name}}</option>
+                            </select> -->
+                            <br/>
+                            <p-dropdown id="mlConsolidationFile" [options]="mlConsolidationFileList" [(ngModel)]="selectedMLConsolidationFile" optionLabel="label" [filter]="true" filterBy="label" [showClear]="true"
+                                placeholder="Select">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                        <div class="marginTop15">
+                            <button type="button" class="btn btn-save" [disabled]="selectedMLConsolidationFile ? false : true" (click)="onSettingsApply()">Apply</button>
+                            <button type="button" (click)="onSettingsCancel()" class="btn btn-reset mlCancel marginL5">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div *ngIf="process.aiEnrich" class="tidyUpData_popup_content">
+                <h4>Augmenting data with the web sources below </h4>
+                <p>List of web sources we are looking to complement our data</p>
+            
+                <div class="row tidyUpData_popup_content__box ai_enrich_popup_content__box">
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo1.png' }}">
+                        </p>
+                
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo2.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo3.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo4.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo5.png' }}">
+                        </p>
+                
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo6.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo7.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo8.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo9.png' }}">
+                        </p>
+                
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo10.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo11.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo12.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo13.png' }}">
+                        </p>
+                
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo14.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo15.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p></p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p></p>
+                
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo16.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p>
+                            <img src="{{ imgPath + 'ai-enrich-logo17.png' }}">
+                        </p>
+                    </div>
+                    <div class="col-lg-3 ai_enrich_popup_content__box1">
+                        <p></p>
+                    </div>
+                
+                </div>
+            
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<p-dialog [(visible)]="displayModal" [baseZIndex]="10000" [modal]="true" styleClass="mydialog">
+    <p-header>
+        <h4 class="modal-title">Preview</h4>
+    </p-header>
+    <my-custom-spinner [loading]="overlayPopup" [isPopupLoading]="true"></my-custom-spinner>
+    <div class="previewExpand_Top">
+        <div class="previewExpand_Name title_output">
+            <img src="{{ imgPath + 'table-img1.png' }}" width="20">
+            <span class="title_name">{{previewTitle}}</span>
+        </div>
+        <div class="previewExpand_Right">
+            <div>
+                <img src="{{ imgPath + 'info-icon.png' }}">
+                <p>Select the tab and download the data</p>
+            </div>
+            <button type="button" (click)="previewDownload()" class="btn btn-blue">
+                <img src="{{ imgPath + 'download-user-icon-white.png' }}" width="13" style="margin-right: 5px;">Download</button>
+        </div>
+    </div>
+
+    <div class="previewExpand_Tabs">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a [ngClass]="selectedPreviewTab =='Original' ? 'nav-item nav-link active show' : 'nav-item nav-link'" id="nav-original-tab" data-toggle="tab" href="#nav-original" role="tab" aria-controls="nav-original"
+                    aria-selected="false" *ngIf="tab.isOriginal" (click)="onTabSelection('Original', true, isSingleTabPreview)">Original</a>
+                <a [ngClass]="selectedPreviewTab =='TidyUp' ? 'nav-item nav-link active show' : 'nav-item nav-link'" id="nav-tidy-tab" data-toggle="tab" href="#nav-tidy" role="tab" aria-controls="nav-tidy" aria-selected="false"
+                    *ngIf="tab.isTidyUp" (click)="onTabSelection('TidyUp', true)">Tidy Up</a>
+                <a [ngClass]="selectedPreviewTab =='MLConsolidation' ? 'nav-item nav-link active show' : 'nav-item nav-link'" id="nav-ml-tab" data-toggle="tab" href="#nav-ml" role="tab" aria-controls="nav-ml" aria-selected="false"
+                    *ngIf="tab.isMLConsolidation" (click)="onTabSelection('MLConsolidation', true)">ML Consolidation</a>
+                <a [ngClass]="selectedPreviewTab =='AIEnrich' ? 'nav-item nav-link active show' : 'nav-item nav-link'" id="nav-alenrich-tab" data-toggle="tab" href="#nav-alenrich" role="tab" aria-controls="nav-alenrich"
+                    aria-selected="false" *ngIf="tab.isAIEnrich" (click)="onTabSelection('AIEnrich', true)">AI Enrich</a>
+            </div>
+        </nav>
+        <div id="nav-tabContent" class="tab-content">
+            <!-- <div class="tab-pane fade active show" id="nav-original" role="tabpanel" aria-labelledby="nav-original-tab"></div>
+                    <div class="tab-pane fade" id="nav-tidy" role="tabpanel" aria-labelledby="nav-tidy-tab"></div>
+                    <div class="tab-pane fade" id="nav-ml" role="tabpanel" aria-labelledby="nav-ml-tab"></div>
+                    <div class="tab-pane fade" id="nav-alenrich" role="tabpanel" aria-labelledby="nav-alenrich-tab"></div> -->
+
+            <div class="borderBoxTblDiv marginT10">
+                <my-datatable id="tblPreview" [tableName]="tabTableName" [table]="tabTableConfig.table" [columns]="tabTableConfig.columns"
+                    [rows]="tabTableConfig.rows">
+                </my-datatable>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- <p-footer></p-footer> -->
+</p-dialog>

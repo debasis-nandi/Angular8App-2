@@ -1,0 +1,23 @@
+.ff_fileupload_summary{ 
+    font-size: 12px !important;
+ }
+
+ .mydialog { width: 80vw; }
+
+@media screen and (max-width: 40em) {
+    .mydialog {
+        width: 75vw;
+    }
+}
+
+#nav-tabContent.tab-content{
+    height:auto !important;
+}
+
+.mydialogAddDb { width: 50vw; }
+.mydialogAddDbContent { overflow: hidden; }
+
+.minHeight400{ min-height: 200px !important; }
+.minHeight70{ min-height: 70px !important; }
+
+#previewDialog .ui-dialog-titlebar-close{ display: none; }

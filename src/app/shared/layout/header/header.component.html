@@ -1,0 +1,47 @@
+<div class="cclose" capture-close></div>
+<div id="mySideNavoverlay" onClick="closeNav()"></div>
+  <section>
+    <!-- Header Menu Start -->
+    <div class="panel-section">
+      <nav class="navbar navbar-default">
+        <div class="row navRow">
+          <div class="col-md-6 col-sm-7 col-xs-7">
+            <div class="navbar-left">
+              <a routerLink="/home" class="navbar-brand"><img class="hidelogo img-responsive"
+                  src="{{ imgPath + 'logo.png' }}" alt="" /> <img class="displaylogo img-responsive" src="{{ imgPath + 'logo2.png' }}"
+                  alt="" /></a>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-7">
+            <div class="navigation-bar">
+              <ul class="nav navbar-nav pull-right">
+                <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+                <li routerLinkActive="active" *ngIf="isAdmin"><a routerLink="/usermanagement">User Management</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="navbar-right">
+              <div class="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  <li class="dropdown"> <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"> <img
+                        src="{{ imgPath + 'prfile_icon.png' }}" alt=""> <span class="hidetext profile-name" *ngIf="userInfo" title="{{userInfo.first_name}}">{{userInfo.first_name}} <br>
+                        <span class="profile-name-des">{{userInfo.role_name}}</span>
+                        </span> <span
+                        class="caret"></span></a>
+                    <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                      <!-- <li><a href="javascript:void(0)">My Profile</a></li> -->
+                      <li><a href="javascript:void(0)" (click)="onLogout()">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Header Menu End -->
+  </section>
+  

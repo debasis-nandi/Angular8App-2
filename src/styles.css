@@ -1,0 +1,232 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"; 
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+
+body{ margin:0; }
+
+.bg-success{
+    background-color: green;
+    font-size: 12px;
+    color: #fff !important;
+}
+
+.bg-error{
+    background-color: #EF5350;
+    font-size: 12px;
+    color: #fff !important;
+}
+
+.mat-simple-snackbar-action{color: #fff !important;}
+
+.mat-form-field{ width:100%; }
+.mat-radio-label{margin:0 15px 0 0;}
+.title-center{margin:0 auto;}
+
+
+
+.ui-dialog-footer{
+    background-color:#f4f4f4 !important;
+}
+
+
+.ui-dialog .ui-dialog-content { 
+    padding: 0 !important;
+    background-color: #fff;
+}
+.ui-button{
+    background-color:#4fb0e5 !important;
+    border: 1px solid #4fb0e5 !important;
+}
+
+
+p-calendar .ui-calendar .ui-inputtext{
+    height: 40px;
+    color: #333333;
+    background-color: #fff;
+    font-size: 13px;
+    border: 1px solid #e7e5ea;
+    width: 280px;
+}
+
+p-calendar .ui-inputtext:enabled:hover:not(.ui-state-error) {
+    border:1px solid #e7e5ea !important;
+}
+
+.ui-growl { 
+    top: 5px !important; 
+    z-index: 1030 !important;
+}
+.ui-growl .ui-growl-item-container .ui-growl-image { color: #fff !important; }
+
+.ui-growl .ui-growl-item-container.ui-growl-message-success {
+    background-color: #66BB6A !important;
+    color: #fff !important;
+}
+.ui-growl .ui-growl-item-container.ui-growl-message-error {
+    background-color: red !important;
+    color: #fff !important;
+}
+
+.mydp .selectiongroup{
+    height: 40px;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fff !important;
+}
+.mydp .selectiondisabled {
+    background-color: #fff !important;
+}
+
+.error{ color: #ed193a; font-size: 12px; }
+
+.mat-table{
+    font-family: 'FSAlbert', Arial, Helvetica, sans-serif !important;
+    color: #6c7487 !important;
+}
+.mat-header-cell{
+    font-size: 14px !important;
+    font-weight:bold !important;
+    font-family: 'FSAlbert', Arial, Helvetica, sans-serif !important;
+}
+.mat-paginator-container{ min-height: 50px !important; }
+
+.width15{ width: 15px; }
+.width20{ width: 20px; }
+.width30{ width: 30px; }
+.width40{ width: 40px; }
+.width50{ width: 50px; }
+.width80{ width: 80px; }
+.width100{ width: 100px; }
+.width110{ width: 110px; }
+.width120{ width: 120px; }
+.width130{ width: 130px; }
+.width150{ width: 150px; }
+.width200{ width: 200px; }
+.width250{ width: 250px; }
+
+.height34{ height: 34px; }
+.height36{ height: 36px; }
+.height38{ height: 38px; }
+.height40{ height: 40px; }
+.height47{ height: 47px; }
+.height50{ height: 50px; }
+
+.control {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-weight: normal;
+  }
+  .control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  .control__indicator {
+    position: absolute;
+    top: -3px;
+    left: 6px;
+    height: 18px;
+    width: 18px;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+  }
+  .control--radio .control__indicator {
+    border-radius: 50%;
+  }
+  .control:hover input ~ .control__indicator,
+  .control input:focus ~ .control__indicator {
+    background: #2aa1c0;
+  }
+  .control input:checked ~ .control__indicator {
+    background: #2aa1c0;
+  }
+  .control:hover input:not([disabled]):checked ~ .control__indicator,
+  .control input:checked:focus ~ .control__indicator {
+    background: #0e647d;
+  }
+  .control input:disabled ~ .control__indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .control__indicator:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+  .control input:checked ~ .control__indicator:after {
+    display: block;
+  }
+  .control--checkbox .control__indicator:after {
+    left: 5px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .control--checkbox input:disabled ~ .control__indicator:after {
+    border-color: #7b7b7b;
+  }
+  .control--radio .control__indicator:after {
+    left: 5px;
+    top: 5px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  .control--radio input:disabled ~ .control__indicator:after {
+    background: #7b7b7b;
+  }
+
+  .p-button-danger .ui-button {
+    background-color: #d9534f !important;
+    border-color: #d9534f !important;
+  }
+
+  .solid-border{ border-top: 2px dotted #bbb;}
+  .marginL5{margin-left: 5px;}
+  .marginT5 {margin-top:5px;}
+  .marginT10 {margin-top:10px;}
+  .marginT150 {margin-top:150px;}
+
+  .min-width-50{ min-width: 50px; }
+  .min-width-100{ min-width: 100px; }
+  .min-width-150{ min-width: 150px; }
+  .min-width-200{ min-width: 200px; }
+  
+  .height34{ height:34px }
+
+  .table_icons a {
+    padding: 4px;
+    color: #4e7fb3;
+    font-size: 18px;
+}
+
+.status2_enable {
+    padding: 4px;
+    color: #4fb0e6;
+    font-size: 18px;
+}
+
+.status2_disable {
+    padding: 4px;
+    color: #999999;
+    font-size: 18px;
+}
+button.btn.disabled {
+  opacity: 1 !important;
+  background: #838383 !important;
+}
+.mid-logo-img img.mid-logo-img-grey {
+  filter: grayscale(100%);
+}

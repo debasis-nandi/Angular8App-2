@@ -1,0 +1,130 @@
+{
+    "table": {
+        "paginator": true,
+        "rows": 10,
+        "rowsPerPageOptions": [5,10,20],
+        "reorderableColumns": true,
+        "responsive": false,
+        "globalsearch": true,
+        "resizableColumns": false,
+        "scrollable": false,
+        "scrollHeight": "600px",
+        "first":0,
+        "selectionMode":"",
+        "globalFilterFields":["originalFile","uploadedDate","processedFile"],
+        "virtualScroll": false,
+        "virtualRowHeight":34,
+        "lazy": false
+    },
+    "columns": [
+        {
+            "field": "id",
+            "header": "Id",
+            "sortable": true,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width100",
+            "hidden": true,
+            "type": "text",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "id",
+            "header": "Original File",
+            "sortable": true,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width200",
+            "hidden": false,
+            "type": "link",
+            "valueField": "originalFile",
+            "routerLink": "/detailed/report"
+        },
+        {
+            "field": "uploadedDate",
+            "header": "Uploaded Date",
+            "sortable": true,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "date",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "tidyUpData",
+            "header": "Tidy Up Data",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "status2",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "mlConsolidation",
+            "header": "ML Consolidation",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "status2",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "aiEnrich",
+            "header": "AI Enrich",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width100",
+            "hidden": false,
+            "type": "status2",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "score",
+            "header": "Score",
+            "sortable": true,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width100",
+            "hidden": false,
+            "type": "progress",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "processedFile",
+            "header": "Processed File",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width150",
+            "hidden": false,
+            "type": "file",
+            "valueField": "",
+            "routerLink": ""
+        },
+        {
+            "field": "action",
+            "header": "Action",
+            "sortable": false,
+            "filter": false,
+            "filterMatchMode": "contains",
+            "styleClass": "width100",
+            "hidden": false,
+            "type": "action",
+            "valueField": "",
+            "routerLink": ""
+        }
+    ],
+    "rows": []
+}

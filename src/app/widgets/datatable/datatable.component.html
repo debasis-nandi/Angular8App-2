@@ -1,0 +1,153 @@
+
+<p-table #myTable id="myTable" *ngIf="table"
+[paginator]="table.paginator" 
+[rows]="table.rows" 
+[first]="table.first"
+[selectionMode]="table.selectionMode"
+[scrollable]="table.scrollable"
+[scrollHeight]="table.scrollHeight"
+[reorderableColumns]="table.reorderableColumns"
+[rowsPerPageOptions]="table.rowsPerPageOptions"
+[globalFilterFields]="table.globalFilterFields"
+[responsive]="table.responsive"
+[loading]="loading"
+[columns]="columns" 
+[value]="rows"
+[virtualScroll]="table.virtualScroll"
+[virtualRowHeight]="table.virtualRowHeight"
+[lazy]="table.lazy"
+[totalRecords]="totalRecords"
+(onLazyLoad)="loadLazy($event)">
+
+<ng-template *ngIf="table.globalsearch" pTemplate="caption">
+    <div class="col-md-12 col-sm-12 col-xs-12 padding0">
+        <div id="search" class="col-md-12 col-sm-12 col-xs-12 pull-left marginT5">
+            <input *ngIf="isGlobalSearch" type="text" pInputText size="50" class="pull-left" placeholder=" Search" (input)="myTable.filterGlobal($event.target.value, 'contains')">
+        </div>
+    </div>
+</ng-template>
+
+<ng-template pTemplate="header" let-columns>
+    <tr>
+        <ng-container *ngFor="let col of columns">
+            <th *ngIf="!col.hidden" [pSortableColumn]="col.sortable ? col.field : ''" [ngClass]="col.styleClass" pReorderableColumn>
+                {{col.header}}
+                <p-sortIcon *ngIf="col.sortable" [field]="col.field"></p-sortIcon>
+            </th>
+        </ng-container>
+    </tr>
+</ng-template>
+
+<ng-template pTemplate="body" let-rowData let-i="rowIndex" let-columns="columns">
+    <tr [pSelectableRow]="rowData" [ngClass]="table.lazy ? 'height34':''">
+        <ng-container *ngFor="let col of columns">
+            <td *ngIf="!col.hidden" [ngClass]="getRowCssClass(col.styleClass, rowData)">
+
+                <div *ngIf="col.type == 'number'">
+                    <span pTooltip="{{rowData[col.field]}}" tooltipPosition="bottom">{{rowData[col.field]}}</span>
+                </div>
+
+                <!-- below commented by Suresh on 2nd Feb
+                <div *ngIf="col.type == 'text'">
+                    <span pTooltip="{{rowData[col.field]}}" tooltipPosition="bottom">{{rowData[col.field] || 'N/A'}}</span>
+                </div>
+                -->
+                <div *ngIf="col.type == 'text'">
+                    <span pTooltip="{{rowData[col.field]}}" tooltipPosition="bottom">{{rowData[col.field]}}</span>
+                </div>
+                <div *ngIf="col.type == 'textarea'">
+                    <textarea>{{rowData[col.field]}}</textarea>
+                </div>
+
+                <div *ngIf="col.type == 'status'">
+                    <span [ngClass]="getStatusCss(rowData[col.field])">{{rowData[col.field]}}</span>
+                </div>
+
+                <div *ngIf="col.type == 'date'">
+                    <span>{{ rowData[col.field] | date : 'MM-dd-yyyy' || 'N/A' }}</span>
+                </div>
+
+                <div *ngIf="col.type == 'datetime'">
+                    <span>{{ rowData[col.field] | date : 'medium' || 'N/A' }}</span>
+                </div>
+
+                <div *ngIf="col.type == 'link'">
+                    <a href="javascript:void(0)" (click)="onLinkClick(col.routerLink, rowData[col.field],i,rowData)" class="color_Evs_blue bold" title="{{rowData[col.valueField]}}">
+                        <span>{{rowData[col.valueField]}}</span>
+                    </a>
+                </div>
+
+                <div *ngIf="col.type == 'edit'" class="table_icons">
+                    <a href="javascript:void(0)" (click)="onEdit(col.routerLink, rowData[col.field])" pTooltip="Edit" tooltipPosition="bottom">
+                        <i class="fas fa-edit size17"></i>
+                    </a>
+                </div>
+
+                <div *ngIf="col.type == 'delete'" class="table_icons">
+                    <a href="javascript:void(0)" (click)="onDelete(rowData[col.field])" pTooltip="Delete" tooltipPosition="bottom">
+                        <i class="fas fa-times size17"></i>
+                    </a>
+                </div>
+
+                <div *ngIf="col.type == 'file'">
+                    <span class="title_name">
+                        {{rowData[col.field] || 'N/A'}}
+                    </span>
+                </div>
+                
+                <div *ngIf="col.type == 'status2'">
+                    <span *ngIf="rowData[col.field]" class="status2_enable"><i class="pi pi-check-circle"></i></span>
+                    <span *ngIf="!rowData[col.field]" class="status2_disable"><i class="pi pi-times-circle"></i></span>
+                </div>
+                
+                <div *ngIf="col.type == 'progress'">
+                    <p-progressBar [value]="rowData[col.field]" [style]="{'height': '8px'}"></p-progressBar>
+                    <span class="progress_output">{{ rowData[col.field] + '% Reliable'}}</span>
+                </div>
+
+                <div *ngIf="col.type == 'action'" class="table_icons">
+                    <a href="javascript:void(0)" *ngIf="isEdit(rowData[col.field])" (click)="onAction('Edit',i,rowData)" pTooltip="Edit" tooltipPosition="bottom">
+                        <i class="pi pi-pencil"></i>
+                    </a>
+                    <a href="javascript:void(0)" [ngClass]="getCssClass(rowData)" *ngIf="isDownload(rowData[col.field])" (click)="onAction('Download',i,rowData)" pTooltip="Download" tooltipPosition="bottom">
+                        <i class="pi pi-cloud-download"></i>
+                    </a>
+                    <a href="javascript:void(0)" *ngIf="isShare(rowData[col.field])" (click)="onAction('Share',i,rowData)" pTooltip="Share" tooltipPosition="bottom">
+                        <i class="pi pi-share-alt"></i>
+                    </a>
+                    <a href="javascript:void(0)" *ngIf="isCopy(rowData[col.field])" (click)="onAction('Copy',i,rowData)" pTooltip="Copy" tooltipPosition="bottom">
+                        <i class="pi pi-copy"></i>
+                    </a>
+                    <a href="javascript:void(0)" *ngIf="isDisable(rowData[col.field])" (click)="onAction('Disable',i,rowData)" pTooltip="Disable" tooltipPosition="bottom">
+                        <i class="pi pi-times"></i>
+                    </a>
+                    <a href="javascript:void(0)" *ngIf="isEnable(rowData[col.field])" (click)="onAction('Enable',i,rowData)" pTooltip="Enable" tooltipPosition="bottom">
+                        <i class="pi pi-check"></i>
+                    </a>
+                    <a href="javascript:void(0)" *ngIf="isDelete(rowData[col.field])" (click)="onAction('Delete',i,rowData)" pTooltip="Delete" tooltipPosition="bottom">
+                        <i class="pi pi-trash"></i>
+                    </a>
+                    <a href="javascript:void(0)" *ngIf="isPreview(rowData[col.field])" (click)="onAction('Preview',i,rowData)" pTooltip="Preview" tooltipPosition="bottom">
+                        <i class="pi pi-clone"></i>
+                    </a>
+                </div>
+            </td>
+        </ng-container>
+    </tr>
+</ng-template>
+<ng-template pTemplate="loadingbody" let-columns="columns">
+    <tr class="height34">
+        <td *ngFor="let col of columns">
+            <div class="loading-text"></div>
+        </td>
+    </tr>
+</ng-template>
+<ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+        <td [attr.colspan]="columns.length">
+            No records found
+        </td>
+    </tr>
+</ng-template>
+
+</p-table>

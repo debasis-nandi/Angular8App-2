@@ -1,0 +1,14 @@
+{
+    "data": {
+        "email": "sujeet.kumar2@evalueserve.com",
+        "first_name": "Sujeet2",
+        "id": 2,
+        "is_active": true,
+        "last_name": "Kumar",
+        "modified_by": 1,
+        "modified_on": "2020-12-24T11:26:51",
+        "role_id": 2,
+        "role_name": "user"
+    },
+    "success": true
+}

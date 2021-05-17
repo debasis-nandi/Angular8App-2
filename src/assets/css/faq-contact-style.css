@@ -1,0 +1,10 @@
+div#texttitleappear {
+    padding: 10px 0 20px;
+}
+.card-body {
+    margin-bottom: 20px;
+}
+.table td p{
+    font-family: 'robotobold', Arial;
+    margin-bottom: 0!important;
+}

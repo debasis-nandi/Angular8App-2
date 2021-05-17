@@ -1,0 +1,123 @@
+/* Start Trends Page */
+.trends-page-77 li:first-child{
+	border-right: 1px solid #cccccc;
+}
+.thestark{
+	font-size: 23px;
+	font-family: "FSAlbert Bold";
+	color: #5e606f;
+}
+.trends_insights {
+    padding: 30px 0;
+}
+.overview-trends-btm{
+    border-top:5px solid #bfc0c7;
+    background:#ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    -moz-box-shadow: 0px 0px 10px 2px #f1eff6;
+    -webkit-box-shadow: 0px 0px 10px 2px #f1eff6;
+    box-shadow: 0px 0px 10px 2px #f1eff6;
+}
+.overview-trends-btm ul{
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+.overview-trends-btm ul li{
+	margin-bottom: 15px;
+    border-bottom: 1px solid #bfc0c7;
+    padding-bottom: 15px;
+    color: #5a5a5a;
+}
+.overview-trends-btm ul li:last-child{
+	border: none;
+    padding-bottom: 0;
+}
+.overview-trends-btm ul li > span{
+	font-family: "FSAlbert Bold";
+    margin-right: 5px;
+    color: #ababb2;
+    display: inline-block;
+}
+.one-row-list{
+    display: flex;
+}
+.one-row-list > div{
+    flex: 1;
+    border-right: 1px solid #e1e1e1;
+    margin-right: 10px;
+}
+.one-row-list > div:last-child{
+    border: 0; margin:0;
+}
+.one-row-list > div span{
+    display: block;
+    font-size: 11px;
+    color: #ababb2;
+    margin-bottom: 5px;
+}
+.insights_box {
+    background: #ffffff;
+	padding: 20px;
+    margin-bottom: 20px;
+    -moz-box-shadow: 0px 0px 10px 2px #f1eff6;
+    -webkit-box-shadow: 0px 0px 10px 2px #f1eff6;
+    box-shadow: 0px 0px 10px 2px #f1eff6;
+}
+.insights_1{
+	padding: 15px 0;
+}
+.insights_box h3{
+	color: #6e6e6e;
+	font-family: "FSAlbert Bold";
+	text-transform: uppercase;
+	font-size: 15px;
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 15px;
+    margin:0;
+}
+@media (max-width: 425px){
+.trends-page-77 ul{
+	display: block;
+}
+.innovation_potential_score{
+	padding-top: 20px;
+	padding-left: 0!important;
+}
+.insights_box h3 {
+ 	font-size: 14px;
+	 margin: 7px 0;
+}
+.insights_box {
+	padding: 5px 10px;
+}
+.trends-page-77 li:first-child{
+	border-right: none;
+}
+.comments img {
+	padding: 10px 0px;
+}
+}
+@media (min-width: 320px) and (max-width: 767px) {
+	.overview-trends-btm ul li{
+		width: 100%;
+		display: block;
+		border-right: none;
+		border-bottom: 1px solid #ccc;
+		padding: 15px 0;
+		margin-bottom: 0
+	}
+	.overview-trends-btm ul li:first-child{
+		padding: 15px 0;
+		border-bottom: 1px solid #ccc;
+	}
+	.overview-trends-btm{
+		border-right: none
+	}
+	.overview-trends-btm ul{
+		margin: 0
+	}
+}
+/* End Trends Page */

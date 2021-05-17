@@ -1,0 +1,70 @@
+<my-custom-spinner [loading]="overlay"></my-custom-spinner>
+<p-growl [life]="growlLife" [(value)]="msgs"></p-growl>
+<form class="login-form" *ngIf="!isAdAuth">
+    <div class="logo">
+        <img src="{{ imgPath + 'logo_login.png' }}" alt="" class="img-responsive">
+        <h1>Login</h1>
+        <p>Welcome back, Please login to your account</p>
+    </div>
+    <div class="wrap-inputlogin">
+        <input class="inputlogin" type="text" name="email">
+        <span class="focus-inputlogin"></span>
+        <span class="label-inputlogin">Email</span>
+    </div>
+    <div class="wrap-inputlogin">
+        <input class="inputlogin" type="password" name="pass">
+        <span class="focus-inputlogin"></span>
+        <span class="label-inputlogin">Password</span>
+    </div>
+    <div class="main-checkbox-sec">
+        <div class="checkbox-sec">
+            <input class="input-checkboxlogin" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkboxlogin" for="ckb1"> Remember me for 30 days</label>
+        </div>
+        <div class="forgot-sec">
+            <a href="javascript:void(0)" (click)="onForgotPassword()" class="txt1"> Forgot Password? </a>
+        </div>
+    </div>
+    <div class="form-btn-sec">
+        <button class="btn form-btn" type="button" (click)="onSubmit()" > Login </button>
+    </div>
+    <div>
+        <span class="txt-login"> By Loging in, you agree to Evalueserve's </span>
+        <span class="txt-login">
+            <a href="#" target="_blank">Terms and conditions</a> &
+            <a href="#" target="_blank">Privacy Policy</a>
+        </span>
+    </div>
+    <div class="login-nav">
+        <ul>
+            <li>
+                <a href="#" target="_blank">Our solutions</a>
+            </li>
+            <li>
+                <span> | </span>
+            </li>
+            <li>
+                <a href="#" target="_blank">Sales intelligence</a>
+            </li>
+            <li>
+                <span> | </span>
+            </li>
+            <li>
+                <a href="#" target="_blank">Procuremine</a>
+            </li>
+            <li>
+                <span> | </span>
+            </li>
+            <li>
+                <a href="#" target="_blank">Case studies</a>
+            </li>
+            <li>
+                <span> | </span>
+            </li>
+            <li>
+                <a href="#" target="_blank">Contact us</a>
+            </li>
+        </ul>
+        <p>Copyright {{getCurrentYear()}}. Evalueserve.com Pvt. Ltd. All rights reserved.</p>
+    </div>
+</form>

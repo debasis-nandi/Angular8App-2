@@ -1,0 +1,15 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "label": "Admin",
+            "name": "admin"
+        },
+        {
+            "id": 2,
+            "label": "User",
+            "name": "user"
+        }
+    ],
+    "success": true
+}

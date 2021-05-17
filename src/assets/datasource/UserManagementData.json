@@ -1,0 +1,35 @@
+{
+    "success": true,
+    "data": [
+        {
+            "email": "debasis.nandi@evalueserve.com",
+            "first_name": "Debasis",
+            "id": 3,
+            "is_active": true,
+            "last_name": "Nandi",
+            "modified_by": 1,
+            "modified_on": "2020-12-16T13:52:01",
+            "role_id": 1
+        },
+        {
+            "email": "sujeet.kumar@evalueserve.com",
+            "first_name": "Sujeet",
+            "id": 2,
+            "is_active": true,
+            "last_name": "Kumar",
+            "modified_by": 1,
+            "modified_on": "2020-12-16T13:44:32",
+            "role_id": 1
+        },
+        {
+            "email": "badal.singh@evalueserve.com",
+            "first_name": "Badal",
+            "id": 1,
+            "is_active": true,
+            "last_name": "Singh",
+            "modified_by": null,
+            "modified_on": "2020-12-16T13:37:38",
+            "role_id": 1
+        }
+    ]
+}

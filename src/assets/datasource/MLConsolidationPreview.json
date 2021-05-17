@@ -1,0 +1,70 @@
+{
+    "success": true,
+    "data": {
+        "file_name": "QueSense_Output.xlsx",
+        "file_records": {
+            "data_fields": {
+                "cluster_id": "Cluster ID",
+                "confidence_score": "confidence_score",
+                "id": "Id",
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "full_name": "Full Name",
+                "company": "Company",
+                "address": "Address",
+                "zip": "Zip",
+                "phone": "Phone",
+                "email": "Email",
+                "remarks": "Remarks",
+                "create_date": "create_date"
+            },
+            "data_rows": [
+                {
+                    "cluster_id": 0,
+                    "confidence_score": 99.999827,
+                    "id": 786095,
+                    "first_name": "Jeremy",
+                    "last_name": "Liew",
+                    "full_name": "Jeremy liew",
+                    "company": "AOL",
+                    "address": "744 N Monticello Ave ",
+                    "zip": "",
+                    "phone": "+1 (826) 697 - 1596",
+                    "email": "JeremySLiew@aol.com",
+                    "remarks": "MIT is at Boston",
+                    "create_date": "12-31-2010"
+                },
+                {
+                    "cluster_id": 0,
+                    "confidence_score": 99.999819,
+                    "id": 786094,
+                    "first_name": "Jeremy",
+                    "last_name": "Liew",
+                    "full_name": "Jeremy liew",
+                    "company": "Lightspeed Venture Partners",
+                    "address": "744 N Monticello Ave ",
+                    "zip": 12345.0,
+                    "phone": "+1 (826) 697 - 1596",
+                    "email": "Not Found",
+                    "remarks": "University of California has great  research located in San Diego",
+                    "create_date": "12-31-2010"
+                },
+                {
+                    "cluster_id": 16,
+                    "confidence_score": 99.999819,
+                    "id": 7860598,
+                    "first_name": "Mark",
+                    "last_name": "Cuban",
+                    "full_name": "Mark cuban",
+                    "company": "Dallas Mavericks",
+                    "address": "2550 E 73rd St ",
+                    "zip": "",
+                    "phone": "+1 (363) 868 - 7115",
+                    "email": "mark.cuban@dallasmavs.com",
+                    "remarks": "Richard is CEO in Oracle  Australia and showed interest in our product",
+                    "create_date": "12-31-2001"
+                }
+            ]
+        }
+    }
+}
